@@ -1,10 +1,25 @@
 import _ from 'lodash';
 
+import parseSchema from './schema';
+
 export default function parser(schema) {
     let param = {};
 
     // Adjust based on what the type is of the parameter
     switch (schema._type) {
+        case 'any':
+            param.type = 'string';
+            break;
+        case 'array':
+            param = parseSchema(schema);
+            break;
+        case 'object':
+            param = parseSchema(schema);
+            break;
+        case 'date':
+            param.type = 'string';
+            param.format = 'date-time';
+            break;
         default: // By default, just assign the schema type to the parameter type
             param.type = schema._type;
             break;

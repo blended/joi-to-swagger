@@ -3,7 +3,10 @@ import {
     getParameterObject
 } from './parameters';
 
+import getSchemaObject from './schema';
+
 export default {
     getBodyParameter,
-    getParameterObject
+    getParameterObject,
+    getSchemaObject
 };
