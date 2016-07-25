@@ -5,8 +5,11 @@ import {
 
 import getSchemaObject from './schema';
 
+import parse from './parser';
+
 export default {
     getBodyParameter,
     getParameterObject,
-    getSchemaObject
+    getSchemaObject,
+    parse
 };
