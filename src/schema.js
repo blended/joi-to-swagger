@@ -29,5 +29,15 @@ export default function parseSchema(schema) {
         return parser(schema);
     }
 
+    result.required = _.reduce(result.properties, (arr, value, key) => {
+        if (value.required) {
+            arr.push(key);
+        }
+
+        delete value.required;
+
+        return arr;
+    }, []);
+
     return result;
 }

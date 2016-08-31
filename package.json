@@ -9,7 +9,8 @@
     "lint": "eslint \"./**/*.js\"",
     "prepublish": "npm run build && npm run test",
     "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive"
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -36,12 +37,12 @@
     "chai": "^3.5.0",
     "cross-env": "^2.0.0",
     "eslint": "^3.0.1",
-    "eslint-config-revolt": "^0.1.6",
-    "eslint-plugin-react": "^5.2.2",
+    "eslint-config-revolt": "^0.2.1",
     "joi": "^9.0.0",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "swagger-parser": "^3.4.1"
   },
   "dependencies": {
     "lodash": "^4.13.1"
