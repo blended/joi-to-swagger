@@ -13,7 +13,7 @@ export default function parseSchema(schema) {
     } else if (schema._type === 'array') {
         result.type = 'array';
         result.items = parseSchema(schema._inner.items[0]);
-    } else if (_.isObject(schema)) {
+    } else if (_.isObject(schema) && !schema._type) {
         result.type = 'object';
         result.properties = _.mapValues(schema, (value) => {
             if (_.isArray(value)) {
