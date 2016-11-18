@@ -34,10 +34,16 @@ export default function parseSchema(schema) {
             arr.push(key);
         }
 
-        delete value.required;
-
         return arr;
     }, []);
+
+    _.each(result.properties, (value, key) => {
+        delete result.properties[key].required;
+    });
+
+    if (result.required.length === 0) {
+        delete result.required;
+    }
 
     return result;
 }
