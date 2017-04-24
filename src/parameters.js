@@ -1,13 +1,18 @@
 import _ from 'lodash';
 
 import parser from './parser';
+import getSchema from './schema';
 
 export function getBodyParameter(schema) {
     let body = {};
 
-    _.each(schema, (property, name) => {
-        _.merge(body, getParameterObject(property, name, 'body'));
-    });
+    if (schema.isJoi) {
+        body.schema = getSchema(schema);
+    } else {
+        _.each(schema, (property, name) => {
+            _.merge(body, getParameterObject(property, name, 'body'));
+        });
+    }
 
     body.schema.required = _.reduce(body.schema.properties, (required, prop, key) => {
         if (prop.required) {
