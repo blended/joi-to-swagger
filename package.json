@@ -1,6 +1,6 @@
 {
   "name": "@revolttv/joi-to-swagger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts a Joi validation schema to a Swagger definition",
   "main": "lib/index.js",
   "jsnext:main": "src/index",
