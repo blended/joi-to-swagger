@@ -20,6 +20,10 @@ export default function parser(schema) {
             param.type = 'string';
             param.format = 'date-time';
             break;
+        case 'alternatives':
+            schema = schema._inner.matches[schema._inner.matches.length - 1].schema;
+            param = parseSchema(schema);
+            break;
         default: // By default, just assign the schema type to the parameter type
             param.type = schema._type;
             break;
