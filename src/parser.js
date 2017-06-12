@@ -43,6 +43,9 @@ export default function parser(schema) {
     // Determine additional properties based on tests
     _.each(schema._tests, (test) => {
         switch (test.name) {
+            case 'isoDate':
+                param.example = new Date().toISOString();
+                break;
             case 'email':
                 param.format = 'email';
                 break;
