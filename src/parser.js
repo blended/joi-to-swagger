@@ -30,14 +30,24 @@ export default function parser(schema) {
     }
 
     // Handle common flags and keys
-    param.description = schema._description || '';
+    if (schema._name) param.name = schema._name;
+    if (schema._summary) param.summary = schema._summary;
+    if (schema._description) param.description = schema._description;
     param.required = _.get(schema, '_flags.presence') === 'required';
+    if (!param.required) delete param.required
 
     // Only allow string and number defaults (no functions or complex objects)
     if (_.get(schema, '_flags.default') &&
         (typeof schema._flags.default === 'string' ||
         typeof schema._flags.default === 'number')) {
         param.default = schema._flags.default;
+    }
+
+    // Only allow string and number defaults (no functions or complex objects)
+    if (_.get(schema, '_flags.example') &&
+        (typeof schema._flags.example === 'string' ||
+        typeof schema._flags.example === 'number')) {
+        param.default = schema._flags.example;
     }
 
     // Determine additional properties based on tests
