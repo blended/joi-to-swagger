@@ -34,7 +34,7 @@ export default function parser(schema) {
     if (schema._summary) param.summary = schema._summary;
     if (schema._description) param.description = schema._description;
     param.required = _.get(schema, '_flags.presence') === 'required';
-    if (!param.required) delete param.required
+    if (!param.required) delete param.required;
 
     // Only allow string and number defaults (no functions or complex objects)
     if (_.get(schema, '_flags.default') &&
