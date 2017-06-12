@@ -6,6 +6,7 @@
   "jsnext:main": "src/index",
   "scripts": {
     "build": "babel ./src --out-dir ./lib",
+    "watch": "babel --watch ./src --out-dir ./lib",
     "lint": "eslint \"./**/*.js\"",
     "prepublish": "npm run build && npm run test",
     "pretest": "npm run lint",
