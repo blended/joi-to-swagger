@@ -77,8 +77,8 @@ export default function parser(schema) {
         }
     });
 
-    if (_.get(schema, '_valids._set.length', 0) > 0 && _.compact(schema._valids._set.length).length > 0) {
-        param.enum = schema._valids._set;
+    if (_.get(schema, '_valids._set.length', 0) > 0 && _.compact(schema._valids._set).length > 0) {
+        param.enum = schema._valids._set.filter(Boolean);
     }
 
     return param;
