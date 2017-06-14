@@ -43,11 +43,8 @@ export default function parser(schema) {
         param.default = schema._flags.default;
     }
 
-    // Only allow string and number defaults (no functions or complex objects)
-    if (_.get(schema, '_flags.example') &&
-        (typeof schema._flags.example === 'string' ||
-        typeof schema._flags.example === 'number')) {
-        param.default = schema._flags.example;
+    if (schema._examples && schema._examples.length) {
+        param.example = schema._examples[0];
     }
 
     // Determine additional properties based on tests
