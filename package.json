@@ -9,21 +9,20 @@
     "watch": "babel --watch ./src --out-dir ./lib",
     "lint": "eslint \"./**/*.js\"",
     "prepublish": "npm run build && npm run test",
-    "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive",
     "test:debug": "npm run test -- --inspect --debug",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RevoltTV/joi-to-swagger.git"
+    "url": "git+https://github.com/blended/joi-to-swagger.git"
   },
-  "author": "REVOLT TV <digital.engineering@revolt.tv>",
+  "author": "blended.io <hola@blended.io>, REVOLT TV <digital.engineering@revolt.tv>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RevoltTV/joi-to-swagger/issues"
+    "url": "https://github.com/blended/joi-to-swagger/issues"
   },
-  "homepage": "https://github.com/RevoltTV/joi-to-swagger#readme",
+  "homepage": "https://github.com/blended/joi-to-swagger#readme",
   "files": [
     "lib",
     "src",
