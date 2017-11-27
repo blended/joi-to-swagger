@@ -1,6 +1,6 @@
 {
-  "name": "@blended/joi-to-swagger",
-  "version": "1.1.2",
+  "name": "@heneise/joi-to-swagger",
+  "version": "1.1.4",
   "description": "Converts a Joi validation schema to a Swagger definition",
   "private": false,
   "main": "lib/index.js",
@@ -10,20 +10,26 @@
     "watch": "babel --watch ./src --out-dir ./lib",
     "lint": "eslint \"./**/*.js\"",
     "prepublish": "npm run build && npm run test",
+    "pretest": "standard",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive",
     "test:debug": "npm run test -- --inspect --debug",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blended/joi-to-swagger.git"
+    "url": "https://github.com/heneise/joi-to-swagger.git"
   },
-  "author": "blended.io <hola@blended.io>, REVOLT TV <digital.engineering@revolt.tv>",
+  "author": "REVOLT TV <digital.engineering@revolt.tv>",
+  "contributors": [
+    "Georgios Stagakis (https://github.com/stagas)",
+    "Patrick Heneise (https://github.com/patrickheneise)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blended/joi-to-swagger/issues"
+    "url": "https://github.com/heneise/joi-to-swagger/issues"
   },
-  "homepage": "https://github.com/blended/joi-to-swagger#readme",
+  "homepage": "https://github.com/heneise/joi-to-swagger#readme",
   "files": [
     "lib",
     "src",
@@ -45,9 +51,10 @@
     "sinon": "^4.1.2",
     "sinon-chai": "^2.8.0",
     "swagger-parser": "^4.0.1"
+    "semantic-release": "^8.2.0"
   },
   "dependencies": {
-    "lodash": "^4.13.1"
+    "lodash": "^4.17.4"
   },
   "peerDependencies": {
     "joi": "^9.0.0"
@@ -59,6 +66,12 @@
     ],
     "plugins": [
       "add-module-exports"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
     ]
   }
 }
