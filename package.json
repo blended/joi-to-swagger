@@ -8,8 +8,7 @@
   "scripts": {
     "build": "babel ./src --out-dir ./lib",
     "watch": "babel --watch ./src --out-dir ./lib",
-    "lint": "eslint \"./**/*.js\"",
-    "prepublish": "npm run build && npm run test",
+    "prepare": "npm run build && npm run test",
     "pretest": "standard",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive",
     "test:debug": "npm run test -- --inspect --debug",
